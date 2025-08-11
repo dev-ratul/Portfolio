@@ -12,6 +12,7 @@ const Home = () => {
       <Education></Education>
       <Skills></Skills>
       <Projects></Projects>
+
       <AboutMe></AboutMe>
     </div>
   );

@@ -1,80 +1,100 @@
-// import React from "react";
-// import { useParams, Link } from "react-router";
-
-
-
-// const ProjectDetail = () => {
-//   const { id } = useParams();
-//   const project = projectsData[id];
-
-//   if (!project) {
-//     return (
-//       <div className="p-12 text-white">
-//         <h2 className="text-3xl font-bold mb-4">Project not found</h2>
-//         <Link to="/projects" className="underline text-cyan-400">
-//           Back to Projects
-//         </Link>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <section className="max-w-4xl mx-auto p-8 text-white">
-//       <h1 className="text-5xl font-bold mb-6">{project.name}</h1>
-//       <img
-//         src={project.image}
-//         alt={`${project.name} screenshot`}
-//         className="rounded-lg mb-6"
-//       />
-//       <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
-//       <p className="mb-6">{project.techStack}</p>
-
-//       <h2 className="text-2xl font-semibold mb-2">Description</h2>
-//       <p className="mb-6">{project.description}</p>
-
-//       <h2 className="text-2xl font-semibold mb-2">Challenges Faced</h2>
-//       <p className="mb-6">{project.challenges}</p>
-
-//       <h2 className="text-2xl font-semibold mb-2">Future Plans</h2>
-//       <p className="mb-6">{project.futurePlans}</p>
-
-//       <div className="flex space-x-6 mt-10">
-//         <a
-//           href={project.liveLink}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="bg-[#0F828C] px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-[#09757b] transition"
-//         >
-//           Live Project
-//         </a>
-//         <a
-//           href={project.githubLink}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="bg-gray-800 px-6 py-3 rounded-lg shadow-md font-semibold hover:bg-gray-700 transition"
-//         >
-//           GitHub Repo (Client)
-//         </a>
-//       </div>
-
-//       <Link to="/projects" className="block mt-10 underline text-cyan-400">
-//         ← Back to Projects
-//       </Link>
-//     </section>
-//   );
-// };
-
-// export default ProjectDetail;
-
-
-import React from 'react';
+import React from "react";
+import { useParams, Link } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+import useAxios from "../../../hook/useAxios";
 
 const ProjectDetail = () => {
-    return (
-        <div>
-            hello
-        </div>
-    );
+  const { id } = useParams();
+  console.log(id)
+  const axiosInstance = useAxios();
+
+  const { data: project, isLoading, isError } = useQuery({
+    queryKey: ["project", id],
+    queryFn: async () => {
+      const res = await axiosInstance.get(`/projects/${id}`);
+      return res.data;
+    },
+  });
+
+  if (isLoading) {
+    return <p className="text-center py-10 text-lg">লোড হচ্ছে...</p>;
+  }
+
+  if (isError || !project) {
+    return <p className="text-center py-10 text-red-500">ডাটা লোড করা যায়নি!</p>;
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto p-6">
+      {/* Project Title */}
+      <h1 className="text-3xl font-bold mb-4">{project.name}</h1>
+
+      {/* Project Image */}
+      <img
+        src={project.image}
+        alt={project.name}
+        className="w-full rounded-lg shadow-lg mb-6"
+      />
+
+      {/* Tech Stack */}
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold mb-2">🛠️ Technology Stack</h2>
+        <p className="text-gray-700">{project.techStack}</p>
+      </div>
+
+      {/* Description */}
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold mb-2">📜 Description</h2>
+        <p className="text-gray-700">{project.description}</p>
+      </div>
+
+      {/* Live Link */}
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold mb-2">🌐 Live Project</h2>
+        <a
+          href={project.liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          {project.liveLink}
+        </a>
+      </div>
+
+      {/* GitHub Link */}
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold mb-2">💻 GitHub Repository</h2>
+        <a
+          href={project.githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          {project.githubLink}
+        </a>
+      </div>
+
+      {/* Challenges */}
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold mb-2">⚡ Challenges</h2>
+        <p className="text-gray-700">{project.challenges}</p>
+      </div>
+
+      {/* Future Plans */}
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">🚀 Future Plans</h2>
+        <p className="text-gray-700">{project.futurePlans}</p>
+      </div>
+
+      {/* Back Button */}
+      <Link
+        to="/projects"
+        className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+      >
+        ← Back to Projects
+      </Link>
+    </div>
+  );
 };
 
 export default ProjectDetail;

@@ -94,7 +94,7 @@ const Projects = () => {
                 </a>
 
                 <Link
-                  to={`/projects/${idx}`}
+                  to={`/projects/${project._id}`}
                   className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300 text-center"
                 >
                   View Details
