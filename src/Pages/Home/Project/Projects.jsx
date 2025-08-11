@@ -1,45 +1,41 @@
 import React from "react";
+import { Link } from "react-router"; // <-- এখানে ঠিক কর
 import { motion } from "framer-motion";
 import Particles from "../../../Particles";
+import { useQuery } from "@tanstack/react-query";
+import useAxios from "../../../hook/useAxios";
+import Loading from "../../../Components/Loading/Loading";
 
-const projectsData = [
-  {
-    name: "Portfolio Website",
-    image: "https://i.ibb.co/Z6Snnxt/portfolio.png",
-    description:
-      "A modern responsive portfolio website built with React, TailwindCSS and Framer Motion to showcase my skills and projects.",
-    liveLink: "https://yourportfolio.com",
-  },
-  {
-    name: "E-commerce Store",
-    image: "https://i.ibb.co/yVQkZhV/ecommerce.png",
-    description:
-      "Full-stack e-commerce web app with user authentication, shopping cart, and payment integration.",
-    liveLink: "https://yourstore.com",
-  },
-  {
-    name: "Blog Platform",
-    image: "https://i.ibb.co/0Jmshvb/blog.png",
-    description:
-      "A blogging platform with CRUD features and rich text editor built using MERN stack.",
-    liveLink: "https://yourblog.com",
-  },
-];
 
 const Projects = () => {
+    const axiosInstans= useAxios()
+
+    const {data: projectsData=[], isLoading}= useQuery({
+        queryKey:['projects'],
+        queryFn: async ()=>{
+            const res= await axiosInstans.get('/projects')
+            return res.data
+        }
+    })
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
+    
   return (
     <section
       id="projects"
-      className="relative flex flex-col items-center justify-center px-6 py-24 text-white overflow-hidden ]"
+      className="relative flex flex-col items-center justify-center px-6 py-24 text-white overflow-hidden"
+      aria-label="Projects section"
     >
       {/* Background Particles */}
-      <div className="absolute inset-0 -z-10 opacity-30 bg-gradient-to-br from-black  to-black opacity-95" >
-        <Particles
+      <div className="absolute inset-0 -z-10 opacity-30  bg-gradient-to-br from-black to-black opacity-95">
+         <Particles
           particleColors={["#a78bfa", "#60a5fa", "#ffffff"]}
           particleCount={120}
-          particleSpread={15}
+          particleSpread={30}
           speed={0.2}
-          particleBaseSize={120}
+          particleBaseSize={80}
           moveParticlesOnHover
         />
       </div>
@@ -49,7 +45,7 @@ const Projects = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-5xl font-extrabold text-center mb-24 tracking-wide"
+        className="text-5xl font-extrabold text-center mb-24 tracking-wide select-none"
       >
         My{" "}
         <span className="bg-gradient-to-r from-[#0F828C] to-[#6dd5ed] bg-clip-text text-transparent">
@@ -87,14 +83,23 @@ const Projects = () => {
               <p className="mb-8 text-gray-300 text-lg leading-relaxed">
                 {project.description}
               </p>
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300"
-              >
-                View Live
-              </a>
+              <div className="flex space-x-6">
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300"
+                >
+                  View Live
+                </a>
+
+                <Link
+                  to={`/projects/${idx}`}
+                  className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300 text-center"
+                >
+                  View Details
+                </Link>
+              </div>
             </div>
           </motion.div>
         ))}

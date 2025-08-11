@@ -1,28 +1,47 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Particles from "../../../Particles";
+import useAxios from "../../../hook/useAxios";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../../Components/Loading/Loading";
 
-const educationData = [
-  {
-    institute: "Barguna Polytechnic Institute",
-    subject: "Computer Science and Technology",
-    location: "Barguna, Barishal, Bangladesh",
-    details:
-      "Focused on practical and theoretical aspects of computer science, including programming, networking, and system analysis. Completed various projects on web development and software design.",
-    year: "2022 - 2026",
-  },
-  {
-    institute: "Barguna Polytechnic Institute",
-    subject: "Computer Science and Technology",
-    location: "Barguna, Barishal, Bangladesh",
-    details:
-      "Focused on practical and theoretical aspects of computer science, including programming, networking, and system analysis. Completed various projects on web development and software design.",
-    year: "2018 - 2022",
-  },
-  // এখানে যদি আরো এডুকেশন থাকে, তা যোগ করতে পারিস
-];
+// const educationData = [
+//   {
+//     institute: "Barguna Polytechnic Institute",
+//     subject: "Computer Science and Technology",
+//     location: "Barguna, Barishal, Bangladesh",
+//     details:
+//       "Focused on practical and theoretical aspects of computer science, including programming, networking, and system analysis. Completed various projects on web development and software design.",
+//     year: "2022 - 2026",
+//   },
+//   {
+//     institute: "Barguna Polytechnic Institute",
+//     subject: "Computer Science and Technology",
+//     location: "Barguna, Barishal, Bangladesh",
+//     details:
+//       "Focused on practical and theoretical aspects of computer science, including programming, networking, and system analysis. Completed various projects on web development and software design.",
+//     year: "2018 - 2022",
+//   },
+//   // এখানে যদি আরো এডুকেশন থাকে, তা যোগ করতে পারিস
+// ]
 
 const Education = () => {
+
+    const axiosInstans= useAxios()
+
+    const {data: educationData=[], isLoading}= useQuery({
+        queryKey: ['educations'],
+        queryFn: async ()=>{
+            const res= await axiosInstans.get('educations')
+            return res.data;
+        }
+    })
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
+
+
   return (
     <section
       id="education"

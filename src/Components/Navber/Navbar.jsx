@@ -6,8 +6,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full mx-auto text-white fixed  z-50 shadow-md pt-10">
-      <section className="w-4/5 mx-auto rounded-4xl2 backdrop-blur-3xl ">
+    <nav className="w-full mx-auto text-white fixed  z-50 shadow-md pt-5  md:pt-10">
+      <section className="w-4/5 mx-auto rounded-4xl backdrop-blur-3xl ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -48,7 +48,7 @@ const Navbar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
+                className="focus:outline-none cursor-pointer "
                 aria-label="Toggle menu"
               >
                 {isOpen ? (
@@ -89,7 +89,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-indigo-800 px-4 pt-2 pb-4 space-y-1">
+          <div className="md:hidden bg-black  px-4 pt-2 pb-4 space-y-1">
             <a
               href="#home"
               className="block px-3 py-2 rounded-md hover:bg-yellow-400 hover:text-indigo-900 transition"
