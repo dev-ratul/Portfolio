@@ -106,6 +106,12 @@ const Skills = () => {
       setContentWidth2(containerRef2.current.scrollWidth / 2);
   }, []);
 
+  useEffect(() => {
+    if (contentWidth2 > 0) {
+      x2.set(-contentWidth2);
+    }
+  }, [contentWidth2, x2]);
+
   useAnimationFrame((t, delta) => {
     let nextX = x1.get() - (speed * delta) / 1000;
     if (contentWidth1 && Math.abs(nextX) > contentWidth1) nextX = 0;
@@ -114,7 +120,9 @@ const Skills = () => {
 
   useAnimationFrame((t, delta) => {
     let nextX = x2.get() + (speed * delta) / 1000;
-    if (contentWidth2 && nextX > contentWidth2) nextX = 0;
+    if (contentWidth2 && nextX >= contentWidth2) {
+      nextX = -contentWidth2;
+    }
     x2.set(nextX);
   });
 
@@ -132,7 +140,7 @@ const Skills = () => {
   const renderSkillCard = (skill, index) => (
     <motion.div
       key={index}
-      className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-lg cursor-pointer min-w-[140px]"
+      className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-lg cursor-pointer min-w-[140px] flex-shrink-0"
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
@@ -167,20 +175,26 @@ const Skills = () => {
     </motion.div>
   );
 
+  useEffect(() => {
+    if (contentWidth2 > 0) {
+      x2.set(-contentWidth2);
+    }
+  }, [contentWidth2, x2]);
+
   return (
     <section
       id="skills"
       className="relative  flex flex-col items-center justify-center px-6 py-20 text-white overflow-hidden"
     >
       <motion.h2
-          id="about-title"
-          className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          My Skills
-        </motion.h2>
+        id="about-title"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        My Skills
+      </motion.h2>
       {/* Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black to-black opacity-95">
         <Particles

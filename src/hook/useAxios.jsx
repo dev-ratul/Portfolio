@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstans= axios.create({
-    baseURL: 'http://localhost:3000/'
+    baseURL: 'https://portfolio-server-omega-eosin.vercel.app/'
 })
 
 const useAxios=()=>{
