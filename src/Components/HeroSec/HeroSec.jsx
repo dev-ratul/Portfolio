@@ -4,6 +4,7 @@ import BlurText from "../../reactBit/BlurText";
 import LightRay from "../../../src/reactBit/LightRays";
 import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "react-scroll";
+import Silk from "../../../src/reactBit/Slik";
 
 const HeroSec = () => {
   return (
@@ -12,7 +13,18 @@ const HeroSec = () => {
       className="relative  flex flex-col md:flex-row items-center justify-center px-6 sm:px-8  pt-40 text-white overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black  to-black">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black  to-black  md:hidden">
+        <Silk
+          speed={5}
+          scale={1}
+          color="#001BB7"
+          noiseIntensity={1.5}
+          rotation={0}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+      </div>
+
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black  to-black hidden md:block">
         <LightRay
           raysOrigin="top-center"
           raysColor="#00ffff"
@@ -23,7 +35,7 @@ const HeroSec = () => {
           mouseInfluence={0.1}
           noiseAmount={0.1}
           distortion={0.05}
-          className="custom-rays"
+          className="custom-rays "
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
       </div>
@@ -80,7 +92,7 @@ const HeroSec = () => {
             delay={80}
             animateBy="words"
             direction="top"
-            className="mb-12 text-[#6dd5ed]"
+            className="mb-12 md:text-[#6dd5ed]"
           />
         </h1>
 
@@ -101,7 +113,10 @@ const HeroSec = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
-          I build performant, scalable, and visually stunning web applications using React.js, Tailwind CSS, and modern JavaScript. I am passionate about writing clean, maintainable code, ensuring accessibility, and delivering exceptional user experiences.
+          I build performant, scalable, and visually stunning web applications
+          using React.js, Tailwind CSS, and modern JavaScript. I am passionate
+          about writing clean, maintainable code, ensuring accessibility, and
+          delivering exceptional user experiences.
         </motion.p>
 
         {/* Buttons */}
