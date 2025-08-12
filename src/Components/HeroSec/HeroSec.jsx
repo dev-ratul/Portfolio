@@ -2,11 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import BlurText from "../../reactBit/BlurText";
 import LightRay from "../../../src/reactBit/LightRays";
+import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const HeroSec = () => {
   return (
     <section
-      id="hero"
+      id="/"
       className="relative  flex flex-col md:flex-row items-center justify-center px-6 sm:px-8  pt-40 text-white overflow-hidden"
     >
       {/* Background */}
@@ -26,20 +27,43 @@ const HeroSec = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
       </div>
 
-      {/* Left: Profile Photo */}
-      <motion.div
-        className="relative z-10 flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-[4px] sm:border-[6px] border-indigo-400 shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:shadow-[0_0_60px_rgba(139,92,246,0.8)] transition-all duration-500 group"
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <img
-          src="https://i.ibb.co/bRmkw3fw/ratul.jpg"
-          alt="Mahmudul Hasan Ratul"
-          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-indigo-500/20 transition-all duration-500"></div>
-      </motion.div>
+      <div className="">
+        {/* Left: Profile Photo */}
+        <motion.div
+          className="relative z-10 flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-[4px] sm:border-[6px] border-indigo-400 shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:shadow-[0_0_60px_rgba(139,92,246,0.8)] transition-all duration-500 group"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <img
+            src="https://i.ibb.co/bRmkw3fw/ratul.jpg"
+            alt="Mahmudul Hasan Ratul"
+            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-indigo-500/20 transition-all duration-500"></div>
+        </motion.div>
+
+        {/* Contact Icons */}
+        <div className="flex justify-center gap-6 mt-6">
+          {[
+            { icon: <FaWhatsapp />, link: "https://wa.me/8801784773949" },
+            { icon: <FaLinkedin />, link: "https://linkedin.com/in/ratul" },
+            { icon: <FaGithub />, link: "https://github.com/ratul" },
+          ].map((item, index) => (
+            <motion.a
+              key={index}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.3, rotate: 10 }}
+              whileTap={{ scale: 0.9 }}
+              className="text-3xl text-indigo-400 hover:text-indigo-500 transition-colors duration-300"
+            >
+              {item.icon}
+            </motion.a>
+          ))}
+        </div>
+      </div>
 
       {/* Right: Text Content */}
       <motion.div

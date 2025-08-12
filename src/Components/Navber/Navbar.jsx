@@ -20,27 +20,44 @@ const Navbar = () => {
               <Link
                 to={"/"}
                 smooth={true}
-                duration={500}
+                duration={800}
                 className="hover:text-yellow-300 cursor-pointer transition"
               >
                 Home
+              </Link>
+              <Link
+                to={"education"}
+                smooth={true}
+                duration={800}
+                className="hover:text-yellow-300 cursor-pointer transition"
+              >
+                Education
+              </Link>
+              <Link
+                to={"skills"}
+                smooth={true}
+                duration={800}
+                className="hover:text-yellow-300 cursor-pointer transition"
+              >
+                Skills
+              </Link>
+              <Link
+                to={"projects"}
+                smooth={true}
+                duration={800}
+                className="hover:text-yellow-300 cursor-pointer transition"
+              >
+                Projects
               </Link>
 
               <Link
                 to="about"
                 smooth={true}
-                duration={500}
+                duration={800}
                 className="hover:text-yellow-300 transition cursor-pointer"
               >
                 About
               </Link>
-
-              <a href="#projects" className="hover:text-yellow-300 transition">
-                Projects
-              </a>
-              <a href="#contact" className="hover:text-yellow-300 transition">
-                Contact
-              </a>
             </div>
 
             {/* Mobile menu button */}
