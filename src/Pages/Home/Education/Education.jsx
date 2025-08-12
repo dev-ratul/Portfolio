@@ -26,21 +26,19 @@ import Loading from "../../../Components/Loading/Loading";
 // ]
 
 const Education = () => {
+  const axiosInstans = useAxios();
 
-    const axiosInstans= useAxios()
+  const { data: educationData = [], isLoading } = useQuery({
+    queryKey: ["educations"],
+    queryFn: async () => {
+      const res = await axiosInstans.get("educations");
+      return res.data;
+    },
+  });
 
-    const {data: educationData=[], isLoading}= useQuery({
-        queryKey: ['educations'],
-        queryFn: async ()=>{
-            const res= await axiosInstans.get('educations')
-            return res.data;
-        }
-    })
-
-    if(isLoading){
-        return <Loading></Loading>
-    }
-
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <section
@@ -61,12 +59,13 @@ const Education = () => {
 
       {/* Section Title */}
       <motion.h2
-        initial={{ opacity: 0, y: -40 }}
+        id="about-title"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-5xl font-extrabold text-center mb-16 tracking-wide"
+        transition={{ duration: 0.8 }}
       >
-        My <span className="bg-gradient-to-r from-[#0F828C] to-[#6dd5ed] bg-clip-text text-transparent">Education</span>
+        My Educaton
       </motion.h2>
 
       {/* Timeline */}
@@ -95,10 +94,14 @@ const Education = () => {
                 idx % 2 === 0 ? "md:ml-10" : "md:mr-10 text-right"
               }`}
             >
-              <h3 className="text-2xl font-semibold text-[#0F828C]">{item.institute}</h3>
+              <h3 className="text-2xl font-semibold text-[#0F828C]">
+                {item.institute}
+              </h3>
               <p className="text-indigo-300 font-medium">{item.subject}</p>
               <p className="text-gray-400 italic mt-1">{item.location}</p>
-              <p className="mt-4 text-gray-300 leading-relaxed whitespace-pre-line">{item.details}</p>
+              <p className="mt-4 text-gray-300 leading-relaxed whitespace-pre-line">
+                {item.details}
+              </p>
             </div>
           </motion.div>
         ))}

@@ -6,7 +6,7 @@ const AboutMe = () => {
   return (
     <section
       id="about"
-      className="relative px-6 pt-20  overflow-hidden"
+      className="relative px-6 py-20  overflow-hidden"
       aria-labelledby="about-title"
     >
       <div className="max-w-7xl mx-auto relative z-10">
@@ -38,10 +38,11 @@ const AboutMe = () => {
             }}
           >
             {[
-              "I started my programming journey a few years ago, driven by a deep curiosity for how technology shapes our world. From learning the basics of HTML, CSS, and JavaScript, I gradually advanced to building full-fledged web applications using modern frameworks like React.",
-              "I enjoy creating clean, performant, and user-friendly websites that solve real-world problems. Whether it's crafting interactive UI or optimizing backend logic, I find satisfaction in writing elegant code that delivers great user experiences.",
-              "Beyond programming, I have a passion for photography and hiking. Exploring nature gives me fresh perspectives and fuels my creativity, which I often bring back to my coding projects.",
-              "I believe in continuous learning and growth, always eager to take on new challenges and improve my skills. My personality is friendly, curious, and dedicated — qualities that reflect in both my professional and personal life.",
+              "I’m Mahmudul Hasan Ratul, currently in my final year pursuing a Diploma in Computer Science & Technology at Barguna Polytechnic Institute (BPI). Throughout my academic journey, I have gained a strong foundation in both theoretical and practical aspects of computer science.",
+              "I specialize as a MERN Stack Web Developer with proficient skills in JavaScript (ES6+), React.js for frontend development, and Node.js, Express.js, and MongoDB for backend and database management. I strive to write clean, efficient, and maintainable code following best practices.",
+              "Over time, I have successfully developed and deployed multiple real-world projects that demonstrate my ability to build dynamic, responsive, and scalable web applications tailored to solve practical problems.",
+              "Problem-solving excites me the most; I enjoy breaking down complex challenges and implementing optimized algorithms and solutions that ensure smooth user experiences and robust performance.",
+              "Currently, I am focused on deepening my understanding of Data Structures and Algorithms using C++ to prepare thoroughly for upcoming technical interviews and competitive programming scenarios.",
             ].map((text, index) => (
               <motion.p
                 key={index}

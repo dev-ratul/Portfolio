@@ -72,18 +72,17 @@ const skillsData = [
 
 const skillsProficiency = [
   { name: "JavaScript", percent: 90 },
-  { name: "React", percent: 85 },
-  { name: "MongoDB", percent: 70 },
-  { name: "Express.js", percent: 75 },
-  { name: "Tailwind CSS", percent: 80 },
-  { name: "Node.js", percent: 70 },
-  { name: "Python", percent: 60 },
-  { name: "C++", percent: 65 },
-  { name: "Git", percent: 85 },
+  { name: "React", percent: 95 },
+  { name: "MongoDB", percent: 95 },
+  { name: "Express.js", percent: 90 },
+  { name: "Tailwind CSS", percent: 95 },
+  { name: "Node.js", percent: 90 },
+  { name: "Python", percent: 70 },
+  { name: "C++", percent: 70 },
   { name: "GitHub", percent: 90 },
-  { name: "Firebase", percent: 50 },
-  { name: "JWT", percent: 55 },
-  { name: "Figma", percent: 40 },
+  { name: "Firebase", percent: 90 },
+  { name: "JWT", percent: 90 },
+  { name: "Figma", percent: 90 },
 ];
 
 const Skills = () => {
@@ -173,6 +172,15 @@ const Skills = () => {
       id="skills"
       className="relative  flex flex-col items-center justify-center px-6 py-20 text-white overflow-hidden"
     >
+      <motion.h2
+          id="about-title"
+          className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          My Skills
+        </motion.h2>
       {/* Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black to-black opacity-95">
         <Particles

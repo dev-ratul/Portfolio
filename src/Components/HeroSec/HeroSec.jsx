@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import BlurText from "../../reactBit/BlurText";
 import LightRay from "../../../src/reactBit/LightRays";
 import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const HeroSec = () => {
   return (
@@ -79,18 +80,18 @@ const HeroSec = () => {
             delay={80}
             animateBy="words"
             direction="top"
-            className="text-[#0F828C]"
+            className="mb-12 text-[#6dd5ed]"
           />
         </h1>
 
         {/* Subtitle */}
         <motion.p
-          className="text-lg sm:text-xl font-semibold text-indigo-300 mb-6 tracking-wide"
+          className="text-lg sm:text-xl font-semibold mb-6 tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          Frontend Developer & UI/UX Enthusiast
+          MERN Stack Developer
         </motion.p>
 
         {/* Description */}
@@ -100,10 +101,7 @@ const HeroSec = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
-          Crafting performant, scalable, and visually stunning web applications
-          with React.js, Tailwind CSS, and modern JavaScript. Passionate about
-          clean code, accessibility, and delivering a delightful user
-          experience.
+          I build performant, scalable, and visually stunning web applications using React.js, Tailwind CSS, and modern JavaScript. I am passionate about writing clean, maintainable code, ensuring accessibility, and delivering exceptional user experiences.
         </motion.p>
 
         {/* Buttons */}
@@ -120,12 +118,14 @@ const HeroSec = () => {
           >
             Download Resume
           </a>
-          <a
-            href="#contact"
-            className="inline-block border-2 border-indigo-500 hover:bg-indigo-600 hover:text-white text-indigo-300 font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg hover:scale-105 shadow-lg hover:shadow-indigo-400/50 transform transition-all duration-300"
+          <Link
+            to="contact"
+            smooth={true}
+            duration={800}
+            className="inline-block cursor-pointer border-2 border-indigo-500 hover:bg-indigo-600 hover:text-white text-indigo-300 font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg hover:scale-105 shadow-lg hover:shadow-indigo-400/50 transform transition-all duration-300"
           >
             Contact Me
-          </a>
+          </Link>
         </motion.div>
 
         {/* Social Links */}

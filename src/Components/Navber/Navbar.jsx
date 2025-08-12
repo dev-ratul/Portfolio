@@ -37,7 +37,7 @@ const Navbar = () => {
                 to={"skills"}
                 smooth={true}
                 duration={800}
-                className="hover:text-yellow-300 cursor-pointer transition"
+                className="hover:text-blue-600 cursor-pointer transition"
               >
                 Skills
               </Link>
@@ -48,6 +48,14 @@ const Navbar = () => {
                 className="hover:text-yellow-300 cursor-pointer transition"
               >
                 Projects
+              </Link>
+              <Link
+                to={"contact"}
+                smooth={true}
+                duration={800}
+                className="hover:text-yellow-300 cursor-pointer transition"
+              >
+                Contact
               </Link>
 
               <Link

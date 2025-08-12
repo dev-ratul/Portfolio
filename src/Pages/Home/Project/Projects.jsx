@@ -41,16 +41,14 @@ const Projects = () => {
 
       {/* Section Title */}
       <motion.h2
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-5xl font-extrabold text-center mb-24 tracking-wide select-none"
-      >
-        My{" "}
-        <span className="bg-gradient-to-r from-[#0F828C] to-[#6dd5ed] bg-clip-text text-transparent">
-          Projects
-        </span>
-      </motion.h2>
+          id="about-title"
+          className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          My Projects
+        </motion.h2>
 
       {/* Projects List */}
       <div className="flex flex-col space-y-10 max-w-7xl w-full">
@@ -94,7 +92,7 @@ const Projects = () => {
 
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300 text-center"
+                  className="inline-block  border border-white hover:bg-blue-600 cursor-pointer text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300 text-center"
                 >
                   View Details
                 </button>
