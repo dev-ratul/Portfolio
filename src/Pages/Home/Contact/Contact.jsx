@@ -107,7 +107,7 @@ const Contact = () => {
           </div>
 
           {/* Right Section */}
-          <div className="md:w-1/2  bg-opacity-90 rounded-3xl p-12 shadow-2xl backdrop-blur-md ">
+          <div className=" md:w-1/2  bg-opacity-90 rounded-3xl p-12 shadow-2xl backdrop-blur-md ">
             <motion.h2
               id="about-title"
               className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"

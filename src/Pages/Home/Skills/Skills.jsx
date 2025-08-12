@@ -159,7 +159,7 @@ const Skills = () => {
       <motion.img
         src={skill.logo}
         alt={skill.name}
-        className="w-16 h-16 mb-4 drop-shadow-lg z-10"
+        className="w-8 h-8 md:w-16 md:h-16 mb-4 drop-shadow-lg z-10"
         whileHover={{ rotate: 8, scale: 1.15 }}
         transition={{ type: "spring", stiffness: 200 }}
       />
@@ -187,14 +187,14 @@ const Skills = () => {
       className="relative  flex flex-col items-center justify-center px-6 py-20 text-white overflow-hidden"
     >
       <motion.h2
-        id="about-title"
-        className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        My Skills
-      </motion.h2>
+          id="about-title"
+          className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          My Skills
+        </motion.h2>
       {/* Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black to-black opacity-95">
         <Particles
@@ -213,10 +213,11 @@ const Skills = () => {
         initial={{ opacity: 1 }}
       >
         {/* Vertical line */}
-        <div className="absolute md:left-1/2 left-4 top-0 transform md:-translate-x-1/2 h-full border-l-2 border-gray-600"></div>
+        <div className="absolute md:left-1/2 left-1/2 top-0 transform md:-translate-x-1/2 h-full border-l-2 border-gray-600"></div>
 
         {skillsProficiency.map(
-          ({ name, percent, date, description }, index) => {
+          ({ name, percent }, index) => {
+            
             const isLeft = index % 2 === 0;
             return (
               <div
@@ -235,7 +236,7 @@ const Skills = () => {
                       isLeft ? "left-0 md:left-auto" : "left-0 md:left-auto"
                     }`}
                   >
-                    {date}
+                    
                   </div>
 
                   {/* Text content block */}
@@ -248,7 +249,7 @@ const Skills = () => {
               }`}
                   >
                     <h3 className="font-semibold text-lg mb-1">{name}</h3>
-                    <p className="text-sm">{description}</p>
+                    
 
                     {/* Percent progress bar */}
                     <div className="mt-2 rounded-full h-4 overflow-hidden relative bg-white/20 shadow-inner">

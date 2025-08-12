@@ -66,8 +66,7 @@ const AboutMe = () => {
           >
             <blockquote className="relative p-6 max-w-xs text-purple-200 italic text-lg md:text-xl rounded-2xl backdrop-blur-md bg-white/10 border border-purple-400/40 shadow-lg hover:shadow-purple-500/40 transition-all duration-300">
               <span className="absolute -top-3 -left-3 w-6 h-6 bg-purple-400 rounded-full animate-ping"></span>
-              &quot;Code is like humor. When you have to explain it, it’s
-              bad.&quot; – Cory House
+              &quot;"Code is like humor. When you have to explain it, it’s bad." – devmhratul&quot; –
             </blockquote>
           </motion.div>
         </div>

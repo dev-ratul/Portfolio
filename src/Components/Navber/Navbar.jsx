@@ -11,8 +11,11 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex-shrink-0 font-bold text-2xl cursor-pointer">
-              RatulDev
+            <div className="flex justify-center items-center font-bold text-2xl cursor-pointer">
+              <div>
+                <img src="https://i.ibb.co.com/M45VHDW/download-5.png" alt="" />
+              </div>
+              <div>devmhratul</div>
             </div>
 
             {/* Desktop Menu */}
@@ -21,7 +24,7 @@ const Navbar = () => {
                 to={"/"}
                 smooth={true}
                 duration={800}
-                className="hover:text-yellow-300 cursor-pointer transition"
+                className="hover:text-blue-600  cursor-pointer transition"
               >
                 Home
               </Link>
@@ -29,7 +32,7 @@ const Navbar = () => {
                 to={"education"}
                 smooth={true}
                 duration={800}
-                className="hover:text-yellow-300 cursor-pointer transition"
+                className="hover:text-blue-600  cursor-pointer transition"
               >
                 Education
               </Link>
@@ -45,7 +48,7 @@ const Navbar = () => {
                 to={"projects"}
                 smooth={true}
                 duration={800}
-                className="hover:text-yellow-300 cursor-pointer transition"
+                className="hover:text-blue-600  cursor-pointer transition"
               >
                 Projects
               </Link>
@@ -53,7 +56,7 @@ const Navbar = () => {
                 to={"contact"}
                 smooth={true}
                 duration={800}
-                className="hover:text-yellow-300 cursor-pointer transition"
+                className="hover:text-blue-600  cursor-pointer transition"
               >
                 Contact
               </Link>
@@ -62,7 +65,7 @@ const Navbar = () => {
                 to="about"
                 smooth={true}
                 duration={800}
-                className="hover:text-yellow-300 transition cursor-pointer"
+                className="hover:text-blue-600  transition cursor-pointer"
               >
                 About
               </Link>
@@ -115,34 +118,61 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-black  px-4 pt-2 pb-4 space-y-1">
-            <a
-              href="#home"
-              className="block px-3 py-2 rounded-md hover:bg-yellow-400 hover:text-indigo-900 transition"
+            <Link
+              to="/"
+              smooth={true}
+              duration={800}
+              className="block px-3 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition"
               onClick={() => setIsOpen(false)}
             >
               Home
-            </a>
-            <a
-              href="/about"
-              className="block px-3 py-2 rounded-md hover:bg-yellow-400 hover:text-indigo-900 transition"
+            </Link>
+            <Link
+              to="education"
+              smooth={true}
+              duration={800}
+              className="block px-3 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition"
               onClick={() => setIsOpen(false)}
             >
-              About
-            </a>
-            <a
-              href="#projects"
-              className="block px-3 py-2 rounded-md hover:bg-yellow-400 hover:text-indigo-900 transition"
+              Education
+            </Link>
+            <Link
+              to="skills"
+              smooth={true}
+              duration={800}
+              className="block px-3 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition"
+              onClick={() => setIsOpen(false)}
+            >
+              Skills
+            </Link>
+            <Link
+              to="projects"
+              smooth={true}
+              duration={800}
+              className="block px-3 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition"
               onClick={() => setIsOpen(false)}
             >
               Projects
-            </a>
-            <a
-              href="#contact"
-              className="block px-3 py-2 rounded-md hover:bg-yellow-400 hover:text-indigo-900 transition"
+            </Link>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={800}
+              className="block px-3 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition"
               onClick={() => setIsOpen(false)}
             >
               Contact
-            </a>
+            </Link>
+            <Link
+              to="about"
+              smooth={true}
+              duration={800}
+              className="block px-3 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </Link>
+            
           </div>
         )}
       </section>

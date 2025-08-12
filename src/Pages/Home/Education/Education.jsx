@@ -48,13 +48,13 @@ const Education = () => {
       {/* Background Particles */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black to-black opacity-95">
         <Particles
-          particleColors={["#a78bfa", "#60a5fa", "#ffffff"]}
-          particleCount={120}
-          particleSpread={15}
-          speed={0.2}
-          particleBaseSize={80}
-          moveParticlesOnHover
-        />
+                  particleColors={["#0F828C", "#6dd5ed", "#ffffff"]}
+                  particleCount={250}
+                  particleSpread={10}
+                  speed={0.25}
+                  particleBaseSize={170}
+                  moveParticlesOnHover
+                />
       </div>
 
       {/* Section Title */}

@@ -2,7 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import BlurText from "../../reactBit/BlurText";
 import LightRay from "../../../src/reactBit/LightRays";
-import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaLinkedin,
+  FaGithub,
+  FaFacebook,
+} from "react-icons/fa";
 import { Link } from "react-scroll";
 import Silk from "../../../src/reactBit/Slik";
 
@@ -62,6 +68,7 @@ const HeroSec = () => {
             { icon: <FaWhatsapp />, link: "https://wa.me/8801784773949" },
             { icon: <FaLinkedin />, link: "https://linkedin.com/in/ratul" },
             { icon: <FaGithub />, link: "https://github.com/ratul" },
+            { icon: <FaFacebook />, link: "https://www.facebook.com/mh.ratul9999" }, // Facebook link এখানে
           ].map((item, index) => (
             <motion.a
               key={index}
