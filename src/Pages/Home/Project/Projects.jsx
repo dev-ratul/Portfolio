@@ -80,19 +80,19 @@ const Projects = () => {
               <p className="mb-8 text-gray-300 text-lg leading-relaxed">
                 {project.description}
               </p>
-              <div className="flex space-x-6">
+              <div className="flex  justify-center items-center gap-2.5 md:gap-0 md:flex-row space-x-6">
                 <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300"
+                  className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-center px-10 py-4   rounded-xl shadow-lg transition-colors duration-300"
                 >
                   View Live
                 </a>
 
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="inline-block  border border-white hover:bg-blue-600 cursor-pointer text-white font-semibold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300 text-center"
+                  className="inline-block  border border-white hover:bg-blue-600 cursor-pointer text-white font-semibold  py-4 px-5 md:px-10  rounded-xl shadow-lg transition-colors duration-300 text-center"
                 >
                   View Details
                 </button>

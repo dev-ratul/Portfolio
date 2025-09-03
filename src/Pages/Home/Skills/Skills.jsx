@@ -79,7 +79,7 @@ const skillsProficiency = [
   { name: "Node.js", percent: 90 },
   { name: "Python", percent: 70 },
   { name: "C++", percent: 70 },
-  { name: "GitHub", percent: 90 },
+  { name: "GitHub", percent: 50 },
   { name: "Firebase", percent: 90 },
   { name: "JWT", percent: 90 },
   { name: "Figma", percent: 90 },
